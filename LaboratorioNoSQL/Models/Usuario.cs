@@ -20,7 +20,7 @@ namespace LaboratorioNoSQL.Models
         [BsonElement("lastname")]
         public string LastName {  get; set; }
         [BsonElement("rols")]
-        public ICollection<string> Roles {  get; set; }
+        public ICollection<string> Rols {  get; set; }
         
     }
 }

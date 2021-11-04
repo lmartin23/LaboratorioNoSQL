@@ -1,3 +1,5 @@
+
+using AutoMapper;
 using LaboratorioNoSQL.Models;
 using LaboratorioNoSQL.Services;
 using Microsoft.AspNetCore.Builder;
@@ -42,6 +44,17 @@ namespace LaboratorioNoSQL
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "LaboratorioNoSQL", Version = "v1" });
             });
+
+            //Configuracion del Mapper
+
+            var mapperConfig = new MapperConfiguration(m =>
+            {
+                m.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,11 +1,9 @@
-﻿using LaboratorioNoSQL.Models;
+﻿using LaboratorioNoSQL.Dtos;
+using LaboratorioNoSQL.Models;
 using LaboratorioNoSQL.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LaboratorioNoSQL.Controllers
 {
@@ -26,17 +24,16 @@ namespace LaboratorioNoSQL.Controllers
             return _usuarioService.Get(); 
         }
         [HttpPost]
-        public ActionResult<Usuario> CreateUser(Usuario usu)
+        public ActionResult<Response<String>> CreateUser(BaseUserDto usu)
         {
-            _usuarioService.Post(usu);
-            return Ok(usu);
+            return _usuarioService.Post(usu); ;
         }
 
         [HttpPut]
-        public ActionResult Update(string email, Usuario u)
+        public ActionResult<Response<String>> SetRols( UserRolDto u)
         {
-            _usuarioService.Update(email, u);
-            return Ok();
+            return _usuarioService.SetRols(u);
+            
         }
 
         [HttpDelete]
