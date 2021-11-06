@@ -36,11 +36,24 @@ namespace LaboratorioNoSQL.Controllers
             
         }
 
+        [HttpDelete(nameof(DeleteRol))]
+        public ActionResult<Response<String>> DeleteRol(UserRolDto u)
+        {
+            return _usuarioService.DeleteRol(u);
+           
+        }
+
         [HttpDelete]
         public ActionResult Delete(string email)
         {
             _usuarioService.Delete(email);
             return Ok();
+        }
+
+        [HttpPost(nameof(Login))]
+        public ActionResult<bool> Login(string email, string password)
+        {
+            return _usuarioService.Login(email, password); ;
         }
     }
 }
