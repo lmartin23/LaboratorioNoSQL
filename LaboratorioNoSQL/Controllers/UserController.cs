@@ -26,7 +26,7 @@ namespace LaboratorioNoSQL.Controllers
         [HttpPost]
         public ActionResult<Response<String>> CreateUser(BaseUserDto usu)
         {
-            return _usuarioService.Post(usu); ;
+            return _usuarioService.Post(usu); 
         }
 
         [HttpPut]
@@ -53,7 +53,7 @@ namespace LaboratorioNoSQL.Controllers
         [HttpPost(nameof(Login))]
         public ActionResult<bool> Login(string email, string password)
         {
-            return _usuarioService.Login(email, password); ;
+            return _usuarioService.Login(email, password); 
         }
     }
 }
